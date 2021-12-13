@@ -1,0 +1,37 @@
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys #keystrokes
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome() #designate browser
+driver.get("https://operations.daxko.com/Online/4045/ProgramsV2/OfferingDetails.mvc?offering_id=SES752436&program_id=TMP29221&location_id=B249&filter=H4sIAAAAAAAEAG1S0W6jMBD8Fz8TyZhwVZDuob20JypBezraqhedLNcsxCnYkXGO0Cj_fjY00FSV_GB21rMzsxwQa6gqUHRAtcoBRUhDKRqjmRFKUsX5Tjf0BUwLIJGHGsO0sV0EE3-Gg1ngZ_63KCQRxhYFmY_YfIbDjARRuLAHHT3EmYFS6Y6KvEGR3FWVhyrFh0F9bYWuyHyB_npIFQVoIUtqui04xNbOhLk6ioiHhOTVLgcqJONG_AP6Pka4ZwWrGvii5zR2aslZ53KwUyE_iTOiBqqZLE8Kcks9FQ5jGBhja9idDOOoP2MYX2FHy_UitFlTx9gbPzMtRglbrUrN6r6yQllyTxaE-K75FbpW6SnJk8eCcTCTr8nDiHwUHn6U6vvDpibcP9urW_Qn_OJs70GPf17VlNoo4X35ohaWhWD7WynHtxqI-xeWVbIanFVWGNCW_6mL9-nmOkg3z0GyuWyT5WUbi1bcLdU-_Y3nd5tffvzzxsQ3t9s_ZI3j6_2a_7hKnp_CyvU94McsfXvo0mXyFlf4ux3BVe0Cb5SSY2Q1DHnj4bqTwgzfx__Ak5a0LQMAAA2")
+#press register
+#REGISTER
+driver.find_element_by_css_selector('.btn.btn-primary.btn-block.programDetail__register-button.register-button.ga-event').click()
+#WAIT
+driver.implicitly_wait(3) 
+#LOGIN
+login = driver.find_element_by_id("user_name")
+login.send_keys("7143238004")
+#SUBMIT
+driver.find_element_by_css_selector('.btn.btn-primary.btn-block').click()
+#PASSWORD
+password = driver.find_element_by_id("password")
+password.send_keys("JAKH7ha4")
+driver.find_element_by_css_selector('.btn.btn-primary.btn-block').click()
+
+#click first term
+driver.find_element_by_xpath('/html/body/main/div[1]/div/div[2]/div/div/label/input').click()
+
+#click second term
+driver.find_element_by_xpath('/html/body/main/div[1]/div/div[3]/div/div/label/input').click()
+
+#click next button
+driver.find_element_by_css_selector('.btn.btn-primary').click()
+#click final next button
+driver.find_element_by_css_selector('.btn.btn-primary.next.ga-event').click()
+
+#WAIT
+driver.implicitly_wait(3) 
+
+driver.close()
